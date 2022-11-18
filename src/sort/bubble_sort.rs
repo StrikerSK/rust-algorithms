@@ -1,8 +1,7 @@
 // Compares value with rest of the array's values and swaps the value with the lowest value
-pub fn sorting() {
-    let input = vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54];
-    println!("Bubble sort - input array: {:?}", input);
-    println!("Bubble sort - output array: {:?}", bubble_sorter(input));
+pub fn sorting(mut param: Vec<i32>) {
+    println!("Bubble sort - input array: {:?}", param);
+    println!("Bubble sort - output array: {:?}", bubble_sorter(param));
 }
 
 fn bubble_sorter(mut param: Vec<i32>) -> Vec<i32> {

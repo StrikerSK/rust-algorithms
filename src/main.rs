@@ -1,7 +1,6 @@
-use crate::bubble_sort::sorting;
-
-mod bubble_sort;
+mod sort;
 
 fn main() {
-    sorting();
+    let input = vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54];
+    sort::bubble_sort::sorting(input);
 }
