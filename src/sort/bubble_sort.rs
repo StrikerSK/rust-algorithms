@@ -1,5 +1,5 @@
 // Compares value with rest of the array's values and swaps the value with the lowest value
-pub fn sorting(mut param: Vec<i32>) {
+pub fn sorting(param: Vec<i32>) {
     println!("Bubble sort - input array: {:?}", param);
     println!("Bubble sort - output array: {:?}", bubble_sorter(param));
 }
