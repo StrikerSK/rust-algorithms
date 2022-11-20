@@ -5,4 +5,5 @@ fn main() {
     sort::bubble_sort::sorting(input.clone());
     sort::merge_sort::sorting(input.clone());
     sort::quick_sort::sorting(input.clone());
+    sort::radix_sort::sorting(input.clone());
 }
