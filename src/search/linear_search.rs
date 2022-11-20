@@ -1,4 +1,4 @@
-pub fn searching(input: Vec<i32>, search_value: i32) {
+pub fn searching(input:&Vec<i32>, search_value: i32) {
     println!("Linear search - input array: {:?}", input);
     println!("Linear search - search value: {:?}", search_value);
 
