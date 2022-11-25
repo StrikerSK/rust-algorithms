@@ -13,4 +13,5 @@ fn main() {
     let search_value = 35;
     search::linear_search::searching(&unsorted_array, search_value);
     search::exponential_search::searching(&sorted_array, search_value);
+    search::binary_search::searching(&sorted_array, search_value);
 }
