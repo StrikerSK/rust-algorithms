@@ -2,15 +2,7 @@ use std::borrow::Borrow;
 use crate::search::searching_trait::SearchingTrait;
 
 // This has same behaviour as binary search => input array must be sorted
-pub fn searching(input:&Vec<i32>, search_value: i32) {
-    println!("Exponential search - input array: {:?}", input);
-    println!("Exponential search - search value: {:?}", search_value);
-
-    // let index: usize = exponential_searching(&input.clone(), input.len(),search_value);
-    // println!("Exponential search - Value {:?} found at index: {:?}", search_value, index);
-}
-
-struct ExponentialSearch;
+pub struct ExponentialSearch;
 
 impl SearchingTrait for ExponentialSearch {
     fn search(&self, input:&Vec<i32>, search_value: i32) -> i32 {
@@ -60,7 +52,7 @@ mod tests {
     // Example of searching that is not working on unsorted array
     fn test_unsorted_searching() {
         let input: Vec<i32> = vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54];
-        assert_eq!(exponential_searching(input.borrow(), input.len(), 89), -1);
+        assert_eq!(exponential_searching(input.borrow(), input.len(), 20), -1);
     }
 
     #[test]

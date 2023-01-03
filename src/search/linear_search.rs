@@ -1,6 +1,6 @@
 use crate::search::searching_trait::SearchingTrait;
 
-struct LinearSearch;
+pub struct LinearSearch;
 
 impl SearchingTrait for LinearSearch {
     fn search(&self, input:&Vec<i32>, search_value: i32) -> i32 {
@@ -29,7 +29,7 @@ mod tests {
     #[test]
     // Example of searching that is not working on unsorted array
     fn test_unsorted_searching() {
-        assert_eq!(searching(&vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54], 89), 7);
+        assert_eq!(searching(&vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54], 20), 8);
     }
 
     #[test]

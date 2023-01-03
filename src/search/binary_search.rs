@@ -1,14 +1,6 @@
 use crate::search::searching_trait::SearchingTrait;
 
-pub fn searching(input:&Vec<i32>, search_value: i32) {
-    println!("Binary search - input array: {:?}", input);
-    println!("Binary search - search value: {:?}", search_value);
-
-    let index: i32 = binary_searching(&input.clone(), search_value);
-    println!("Binary search - Value {:?} found at index: {:?}", search_value, index);
-}
-
-struct BinarySearch;
+pub struct BinarySearch;
 
 impl SearchingTrait for BinarySearch {
     fn search(&self, input:&Vec<i32>, search_value: i32) -> i32 {
@@ -42,7 +34,7 @@ mod tests {
 
     #[test]
     fn test_unsorted_searching() {
-        assert_eq!(binary_searching(&vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54], 89), 7);
+        assert_eq!(binary_searching(&vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54], 20), -1);
     }
 
     #[test]
