@@ -8,7 +8,7 @@ pub fn searching(input:&Vec<i32>, search_value: i32) {
 
 fn binary_searching(input: &Vec<i32>, search_value: i32) -> usize {
     let mut first_index: usize = 0;
-    let mut last_index: usize = (input.len() - 1);
+    let mut last_index: usize = input.len() - 1;
     let mut middle_index: usize = (first_index + last_index) / 2;
 
     while first_index <= last_index {
@@ -23,4 +23,21 @@ fn binary_searching(input: &Vec<i32>, search_value: i32) -> usize {
     }
 
     return 0;
+}
+
+#[cfg(test)]
+mod tests {
+    // Note this useful idiom: importing names from outer (for mod tests) scope.
+    use super::*;
+
+    #[test]
+    fn test_unsorted_searching() {
+        assert_eq!(binary_searching(&vec![56, 123, 2, 78, 15, 79, 35, 89, 20, 54], 89), 7);
+    }
+
+    #[test]
+    fn test_sorted_searching() {
+        assert_eq!(binary_searching(&vec![2, 15, 20, 35, 54, 56, 78, 79, 89, 123], 89), 8);
+    }
+
 }

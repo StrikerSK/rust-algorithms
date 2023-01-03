@@ -13,14 +13,12 @@ fn exponential_searching(input: &Vec<i32>, n: usize, x: i32) -> usize {
     }
 
     let mut bound: usize = 1;
-    let mut index: usize = 0;
 
     while bound < n && input[bound] <= x {
         bound = bound * 2;
     }
 
-    index = binary_searching(input, bound / 2, bound.min((n - 1) as usize), x);
-    return index;
+    return binary_searching(input, bound / 2, bound.min((n - 1) as usize), x);
 }
 
 fn binary_searching(input: &Vec<i32>, low: usize, high: usize, search_value: i32) -> usize {

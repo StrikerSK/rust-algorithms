@@ -8,7 +8,7 @@ pub fn sorting(mut param: Vec<i32>) {
 }
 
 fn quick_sorter(slice: &mut Vec<i32>, low: usize, high: usize)  {
-    if low < high {;
+    if low < high {
         let p: usize = pivot_util(slice, low, high);
         quick_sorter(slice, low, p-1);
         quick_sorter(slice, p+1, high);
