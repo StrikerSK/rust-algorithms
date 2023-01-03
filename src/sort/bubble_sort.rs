@@ -10,8 +10,6 @@ fn bubble_sorter(param: &mut Vec<i32>) {
     let mut is_swapped = false;
 
     for i in 0..(param.len() - 1) {
-        is_swapped = false;
-
         for j in (i + 1)..(param.len()) {
             if param[i] > param[j] {
                 let tmp_var1 = param[i];
