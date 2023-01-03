@@ -1,20 +1,30 @@
+use crate::search::searching_trait::SearchingTrait;
+
 pub fn searching(input:&Vec<i32>, search_value: i32) {
     println!("Binary search - input array: {:?}", input);
     println!("Binary search - search value: {:?}", search_value);
 
-    let index: usize = binary_searching(&input.clone(), search_value);
+    let index: i32 = binary_searching(&input.clone(), search_value);
     println!("Binary search - Value {:?} found at index: {:?}", search_value, index);
 }
 
-fn binary_searching(input: &Vec<i32>, search_value: i32) -> usize {
-    let mut first_index: usize = 0;
-    let mut last_index: usize = input.len() - 1;
-    let mut middle_index: usize = (first_index + last_index) / 2;
+struct BinarySearch;
+
+impl SearchingTrait for BinarySearch {
+    fn search(&self, input:&Vec<i32>, search_value: i32) -> i32 {
+        binary_searching(&input.clone(), search_value) as i32
+    }
+}
+
+fn binary_searching(input: &Vec<i32>, search_value: i32) -> i32 {
+    let mut first_index: i32  = 0;
+    let mut last_index: i32 = (input.len() - 1) as i32;
+    let mut middle_index: i32 = (first_index + last_index) / 2;
 
     while first_index <= last_index {
-        if input[middle_index] < search_value {
+        if input[middle_index as usize] < search_value {
             first_index = middle_index + 1;
-        } else if input[middle_index] == search_value {
+        } else if input[middle_index as usize] == search_value {
             return middle_index;
         } else {
             last_index = middle_index - 1;
@@ -22,7 +32,7 @@ fn binary_searching(input: &Vec<i32>, search_value: i32) -> usize {
         middle_index = (first_index + last_index) / 2;
     }
 
-    return 0;
+    return -1;
 }
 
 #[cfg(test)]
@@ -38,6 +48,11 @@ mod tests {
     #[test]
     fn test_sorted_searching() {
         assert_eq!(binary_searching(&vec![2, 15, 20, 35, 54, 56, 78, 79, 89, 123], 89), 8);
+    }
+
+    #[test]
+    fn test_searching_nonexisting() {
+        assert_eq!(binary_searching(&vec![2, 15, 20, 35, 54, 56, 78, 79, 89, 123], 1000), -1);
     }
 
 }
